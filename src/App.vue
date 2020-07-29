@@ -1,6 +1,9 @@
 <template>
-  <div class="wrapper light">
-    <SideText class="placeholder" />
+  <div class="wrapper">
+    <div class="placeholder">
+      <SideText theme="light" />
+      <ThemeToggle theme="light" />
+    </div>
     <VerticalCard class="card" name="Okan Demir Baykal" occupation="High School Senior"/>
   </div>
 </template>
@@ -8,17 +11,17 @@
 <script>
 import SideText from './components/SideText.vue'
 import VerticalCard from './components/VerticalCard.vue'
+import ThemeToggle from './components/ThemeToggle'
 
 export default {
   name: 'App',
-  data() {
-    return {
-      mode: 'dark'
-    }
-  },
   components: {
     VerticalCard,
-    SideText
+    SideText,
+    ThemeToggle
+  },
+  mounted() {
+    document.documentElement.setAttribute('data-theme', 'light');
   }
 }
 </script>
@@ -44,10 +47,20 @@ export default {
     --rem-sm-neg: -1rem;
   }
 
-  .light {
-    text-decoration: none;
+  :root[data-theme="light"] {
+    --main: #D5E3F0;
+    --shadow: #808890;
+    --light: #FFFFFF;
+    --text: #6b798b;
   }
-  
+
+  :root[data-theme="dark"] {
+  --main: #141414;
+  --shadow: #080808;
+  --light: #202020;
+  --text: #D5E3F0;
+  }
+
   * {
     padding: none;
     border: none;
@@ -80,6 +93,9 @@ export default {
 
   .placeholder {
     grid-area: placeholder;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 3rem;
     margin: auto 4rem;
   }
 

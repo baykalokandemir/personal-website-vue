@@ -101,7 +101,7 @@
                 -0.5rem -0.5rem var(--rem-lg) var(--light);
     font-size: 1.35rem;
     font-weight: 700;
-    color: #6b798b;
+    color: var(--text);
     text-transform: uppercase;
     letter-spacing: 0.1rem;
     text-decoration: none;
