@@ -41,8 +41,8 @@
     background: var(--card-bg);
     width: 100%;
     height: 100%;
-    max-width: var(--max-card-w);
-    max-height: var(--max-card-h);
+    max-width: var(--max-vcard-w);
+    max-height: var(--max-vcard-h);
     border-radius: var(--rem-lg);
     box-shadow: var(--rem-lg-neg) var(--rem-lg-neg) 4rem var(--light), 
                 var(--rem-lg)     var(--rem-lg)     4rem var(--shadow);

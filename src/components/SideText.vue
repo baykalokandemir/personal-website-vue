@@ -1,8 +1,8 @@
 <template>
   <div class="info">
     <div class="text">
+      <h1>Hello There!</h1>
       <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda repudiandae commodi quo placeat eum, beatae facere recusandae, quod possimus asperiores deleniti! Alias voluptatum, perspiciatis minima exercitationem assumenda perferendis numquam nisi.</p>
-      <h1></h1>
     </div>
   </div>
 </template>
@@ -12,9 +12,6 @@
 export default {
   name: 'SideText',
   components: {
-  },
-  props: {
-    theme: String
   }
 }
 </script>
@@ -28,6 +25,16 @@ export default {
 
 .text {
   margin: auto;
+  color: var(--text);
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+p {
+  font-size: 1.5rem;
 }
 
 </style>
