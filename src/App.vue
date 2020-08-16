@@ -1,14 +1,19 @@
 <template>
-  <div class="wrapper">
-    <div class="info-container">
-      <SideText />
-      <ThemeToggle class="theme-toggle" />
-      <div class="hcards-subcontainer">
-        <HorizontalCard />
-      </div>  
+  <div class="base">
+    <div class="wrapper">
+      <div class="info-container">
+        <SideText />
+        <ThemeToggle class="theme-toggle" />
+      </div>
+      <VerticalCard class="v-card" name="Okan Demir Baykal" occupation="High School Senior"/>
     </div>
-    <VerticalCard class="v-card" name="Okan Demir Baykal" occupation="High School Senior"/>
+    <carousel class="wrapper-2">
+      <slide><HorizontalCard class="h-card" /></slide>
+      <slide><HorizontalCard class="h-card" /></slide>
+      <slide><HorizontalCard class="h-card" /></slide>
+    </carousel>
   </div>
+
 </template>
 
 <script>
@@ -16,6 +21,8 @@ import SideText from './components/SideText.vue'
 import VerticalCard from './components/VerticalCard.vue'
 import HorizontalCard from './components/HorizontalCard.vue'
 import ThemeToggle from './components/ThemeToggle'
+import { Carousel, Slide } from 'vue-carousel';
+
 
 export default {
   name: 'App',
@@ -23,7 +30,9 @@ export default {
     VerticalCard,
     HorizontalCard,
     SideText,
-    ThemeToggle
+    ThemeToggle,
+    Carousel,
+    Slide
   },
   mounted() {
     document.documentElement.setAttribute('data-theme', 'light');
@@ -35,16 +44,18 @@ export default {
   @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
 
   :root {
-    --main: #D5E3F0;
-    --shadow: #808890;
-    --light: #FFFFFF;
-    --text: #6b798b;
     --pp-shadow: rgba(0, 0, 0, 0.4);
     --card-bg: linear-gradient(-45deg, rgba(0,0,0,0.1), rgba(255,255,255,0.05));
+    --max-vcard-sm-w: 21rem;
+    --max-vcard-sm-h: 31.5rem;
     --max-vcard-w: 26rem;
     --max-vcard-h: 40rem;
+    --max-hcard-w: ;
+    --max-hcard-h: ;
+    --laptop-fraction: 4 / 15;
     --mobile-fraction: 3 / 4;
     --mobile-fraction-sm: 6 / 9;
+    --toggle-fraction: 5 / 4;
     --transition: 0.2s;
     --rem-lg: 2rem;
     --rem-md: 1.5rem;
@@ -55,7 +66,7 @@ export default {
   }
 
   :root[data-theme="light"] {
-    --main: #D5E3F0;
+    --main: #d5e3f0;
     --shadow: #808890;
     --light: #FFFFFF;
     --text: #6b798b;
@@ -64,7 +75,7 @@ export default {
   :root[data-theme="dark"] {
     --main: #141414;
     --shadow: #080808;
-    --light: #202020;
+    --light: #313131;
     --text: #D5E3F0;
   }
 
@@ -78,7 +89,7 @@ export default {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    transition: 0.3s;
+    transition: var(--transition);
   }
 
   body {
@@ -95,22 +106,35 @@ export default {
     padding: 3rem;
   }
 
+  .wrapper-2 {
+    display: grid;
+    grid-row-gap: 3rem;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(2, auto);
+    background-color: var(--main);
+    grid-gap: 3rem;
+    min-height: 30vh;
+    padding: 3rem;
+  }
+
   .v-card {
     grid-area: card;
   }
 
+  .v-card-sm {
+    margin: auto;
+  }
+
+  .h-card {
+    margin: 2rem;
+  }
+
   .info-container {
     grid-area: placeholder;
+    padding: 2rem;
     display: grid;
-    grid-template-rows: 12fr 1fr 12fr;
+    grid-template-rows: repeat(2, auto);
     grid-gap: 2rem;
     margin: auto 2rem;
-  }
-
-  .hcards-subcontainer {
-    margin: 4rem 1rem;
-  }
-
-  @media (max-width: 1400px) {
   }
 </style>

@@ -19,6 +19,7 @@
       }
     },
     mounted() {
+      this.themeText = 'light';
       let htmlElement = document.documentElement;
       let theme = localStorage.getItem("theme");
 
@@ -57,9 +58,9 @@
   .toggle {
     isolation: isolate;
     position: relative;
-    height: 2rem;
-    width: 7.5rem;
-    border-radius: 1rem;
+    height: calc(2rem * var(--toggle-fraction));
+    width: calc(7.5rem * var(--toggle-fraction));
+    border-radius: calc(1rem * var(--toggle-fraction));
     overflow: hidden;
     box-shadow:
       -0.5rem  -0.25rem 0.5rem  0.1rem var(--light),
@@ -77,14 +78,14 @@
     align-items: center;
     justify-content: center;
     text-transform: uppercase;
-    font-size: .75rem;
+    font-size: calc(0.75rem * var(--toggle-fraction));
     font-weight: bold;
     height: 100%;
-    width: 5rem;
+    width: calc(5rem * var(--toggle-fraction));
     background: var(--light);
-    border-radius: 1rem;
+    border-radius: calc(1rem * var(--toggle-fraction));
     transform: translate3d(0%, 0, 0);
-    transition: transform 0.4s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+    transition: transform var(--transition) cubic-bezier(0.85, 0.05, 0.18, 1.35);
     box-shadow:
       -0.5rem -0.25rem 0.5rem  0rem var(--light),
        0.5rem  0.25rem 0.75rem 0rem var(--main);

@@ -8,7 +8,7 @@
       </div>
 
       <div class="btn-lg-container">
-        <a class="btn-lg" download> Resume </a>
+        <btn class="btn-lg"> Resume </btn>
       </div>
 
       <div class="btn-sm-container"> <!-- btn-sm-container begins here -->

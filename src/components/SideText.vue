@@ -31,10 +31,14 @@ export default {
 h1 {
   font-size: 3rem;
   font-weight: 600;
+  padding-bottom: 1rem;
+  letter-spacing: 0.1rem;
 }
 
 p {
   font-size: 1.5rem;
+  letter-spacing: 0.1rem;
+  line-height: 2rem;
 }
 
 </style>
