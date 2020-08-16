@@ -7,13 +7,12 @@
       </div>
       <VerticalCard class="v-card" name="Okan Demir Baykal" occupation="High School Senior"/>
     </div>
-    <carousel class="wrapper-2">
-      <slide><HorizontalCard class="h-card" /></slide>
-      <slide><HorizontalCard class="h-card" /></slide>
-      <slide><HorizontalCard class="h-card" /></slide>
-    </carousel>
+    <div class="wrapper-2">        
+      <HorizontalCard class="h-card" />
+      <HorizontalCard class="h-card" />
+      <HorizontalCard class="h-card" />
+    </div>
   </div>
-
 </template>
 
 <script>
@@ -21,7 +20,6 @@ import SideText from './components/SideText.vue'
 import VerticalCard from './components/VerticalCard.vue'
 import HorizontalCard from './components/HorizontalCard.vue'
 import ThemeToggle from './components/ThemeToggle'
-import { Carousel, Slide } from 'vue-carousel';
 
 
 export default {
@@ -30,9 +28,7 @@ export default {
     VerticalCard,
     HorizontalCard,
     SideText,
-    ThemeToggle,
-    Carousel,
-    Slide
+    ThemeToggle
   },
   mounted() {
     document.documentElement.setAttribute('data-theme', 'light');
@@ -63,6 +59,10 @@ export default {
     --rem-lg-neg: -2rem;
     --rem-md-neg: -1.5rem;
     --rem-sm-neg: -1rem;
+  }
+
+  html {
+    font-size: 20px;
   }
 
   :root[data-theme="light"] {
@@ -136,5 +136,17 @@ export default {
     grid-template-rows: repeat(2, auto);
     grid-gap: 2rem;
     margin: auto 2rem;
+  }
+
+  @media (max-width: 2000px){
+    html {
+      font-size: 18px;
+    }
+  }
+
+  @media (max-width: 1800px){
+    html {
+      font-size: 16px;
+    }
   }
 </style>
